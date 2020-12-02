@@ -51,12 +51,13 @@ def sendmail(images, email_address):
         smtp.send_message(msg)
 
 
-images = get_link("wallpapers")
-# print(images)
-a = []
-for img in images:
-    a.append(img.split('/')[-1])
+def runtasks(sub, email):
 
-# print(a)
-download(wallpapers=images)
-sendmail(a, "10satyam.jha@gmail.com")
+    images = get_link(sub_name=sub)
+
+    data = []
+    for img in images:
+        data.append(img.split('/')[-1])
+
+    download(wallpapers=images)
+    sendmail(data, email_address=email)
