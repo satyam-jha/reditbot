@@ -5,6 +5,7 @@ import smtplib
 import imghdr
 from email.message import EmailMessage
 import cf
+import dropbox
 
 
 def get_link(sub_name):
@@ -20,6 +21,15 @@ def get_link(sub_name):
         wallpapers.append(post.url)
 
     return wallpapers
+
+
+def dropupload(wallpapers, token):
+    for img in wallpapers:
+        img_data = requests.get(img).content
+
+        file_to = '/wallpaper/{}'.format(img.split('/')[-1])
+        drop = dropbox.Dropbox(token)
+        drop.files_upload(img_data, file_to)
 
 
 def download(wallpapers):
@@ -51,13 +61,13 @@ def sendmail(images, email_address):
         smtp.send_message(msg)
 
 
-def runtasks(sub, email):
+def runtasks(sub, email, token):
 
     images = get_link(sub_name=sub)
 
     data = []
     for img in images:
         data.append(img.split('/')[-1])
-
-    download(wallpapers=images)
-    sendmail(data, email_address=email)
+    dropupload(wallpapers=images, token=token)
+    # download(wallpapers=images)
+    #sendmail(data, email_address=email)

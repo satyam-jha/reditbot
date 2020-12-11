@@ -1,4 +1,4 @@
-from wallpapaer import runtasks
+from wallpapaer import runtasks, dropupload
 import schedule
 import time
 
@@ -6,8 +6,16 @@ email = "10satyam.jha@gmail.com"
 
 sub = "wallpapers"
 
-schedule.every().day.at("10:00").do(runtasks, sub=sub, email=email)
+token = "_FBBaBWz2GgAAAAAAAAAAYj4SOFZAwEAL-ECw4uVVjriywQoZNbAv67zzPnUCSU6"
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+
+def sayhello():
+    print("hello")
+
+
+#runtasks(sub=sub, email=email, token=token)
+schedule.every().day.at("10:10").do(runtasks, sub=sub, email=email, token=token)
+
+# while True:
+#    schedule.run_pending()
+#   time.sleep(1)
