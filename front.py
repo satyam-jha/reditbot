@@ -4,7 +4,7 @@ import time
 
 email = "10satyam.jha@gmail.com"
 
-sub = "wallpapers"
+sub = "wallpaper"
 
 token = "_FBBaBWz2GgAAAAAAAAAAYj4SOFZAwEAL-ECw4uVVjriywQoZNbAv67zzPnUCSU6"
 
@@ -13,8 +13,8 @@ def sayhello():
     print("hello")
 
 
-#runtasks(sub=sub, email=email, token=token)
-schedule.every().day.at("10:10").do(runtasks, sub=sub, email=email, token=token)
+runtasks(sub=sub, email=email, token=token)
+#schedule.every().day.at("10:46").do(runtasks, sub=sub, email=email, token=token)
 
 # while True:
 #    schedule.run_pending()
