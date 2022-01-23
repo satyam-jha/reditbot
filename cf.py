@@ -1,6 +1,0 @@
-secret = "6Lsn4l6pLEAOt3LUp9e_j14qOFs"
-client_id = "WBSxGmdOxTJ6uA"
-username = "MR_Shutyum"
-password = "killerprime"
-user_email = "rstuffon@gmail.com"
-user_pass = "KILLERPRIME"
